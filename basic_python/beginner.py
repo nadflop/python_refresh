@@ -587,12 +587,12 @@ calc_bmi()
 # convert pressure in kilopascals to pound/sq inch, a milimeter of mercury (mmHg) and atmosphere pressure
 # 1 Psi = 6.89476 Kpa
 # 1 kPa = 7.50062 mmHg
-# 1 kPa = tel:00098692327 atm
+# 1 kPa = 0.0098692327 atm
 def convert_pressure():
     kpa = float(input("Pressure in kilopascals: "))
     psi = kpa / 6.89476
     mmhg = kpa * 7.50062
-    atm = kpa * tel:00098692327
+    atm = kpa * 0.0098692327
     print("Pressure in pounds per square inch: %.2f psi" % psi)
     print("Pressure in milimeter of mercury: %.2f mmHg" % mmhg)
     print("Atmosphere pressure: %.2f atm" % atm)
