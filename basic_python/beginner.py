@@ -539,3 +539,132 @@ def convert_time():
 convert_time()
 
 #------ Q 63 ----------
+# get an absolute file path
+# os.path.abspath(path)
+def absolute_file_path(fname_path):
+    import os
+    
+    return os.path.abspath(fname_path)
+
+print('Absolute file path: ', absolute_file_path('beginner.py'))
+
+#------ Q 64 ----------
+# retrieve date and time file creation and modification
+def get_file_info(fname_path):
+    import os, time
+
+    print('Last modified: ', time.ctime(os.path.getmtime(fname_path)))
+    print('Created: ', time.ctime(os.path.getctime(fname_path)))
+
+get_file_info('beginner.py')
+
+#------ Q 65 ----------
+def convert_seconds():
+    time = float(input("Input time in seconds: "))
+    days = time / (24 * 3600)
+    time = time % (24 * 3600) # update time with the remaining secs
+    hours = time / 3600
+    time = time % 3600 # update time with the remaining secs
+    minutes = time / 60
+    time = time % 60 # update time with the remaining secs
+    seconds = time
+
+    print("day:hour:minutes:seconds -> %d:%d:%d:%d" % (days, hours, minutes, seconds))
+
+convert_seconds()
+
+#------ Q 66 ----------
+def calc_bmi():
+    height = float(input("Height in meter: "))
+    weight= float(input("Weight in kg: "))
+
+    bmi = round(weight / (height ** 2), 1)
+    print("BMI for height: {} and weight: {} is {}".format(height, weight, bmi))
+
+calc_bmi()
+
+#------ Q 67 ----------
+# convert pressure in kilopascals to pound/sq inch, a milimeter of mercury (mmHg) and atmosphere pressure
+# 1 Psi = 6.89476 Kpa
+# 1 kPa = 7.50062 mmHg
+# 1 kPa = tel:00098692327 atm
+def convert_pressure():
+    kpa = float(input("Pressure in kilopascals: "))
+    psi = kpa / 6.89476
+    mmhg = kpa * 7.50062
+    atm = kpa * tel:00098692327
+    print("Pressure in pounds per square inch: %.2f psi" % psi)
+    print("Pressure in milimeter of mercury: %.2f mmHg" % mmhg)
+    print("Atmosphere pressure: %.2f atm" % atm)
+
+convert_pressure()
+
+#------ Q 68 ----------
+# calculate sum of digits of number
+def sum_of_digits():
+    num = str(input("Input a digit: "))
+    result = 0
+
+    for i in range(len(num)):
+        result += int(num[i])
+
+    print("The sum of digits {} is {}".format(num, result))
+
+sum_of_digits()
+
+#------ Q 69 ----------
+# sort 3 int without using conditional statements and loops
+def sort_int():
+    a = int(input("Input 1st integer: "))
+    b = int(input("Input 2nd integer: "))
+    c = int(input("Input 3rd integer: "))
+
+    max_val = max(a, b, c)
+    min_val = min(a, b, c)
+    mid_val = (a+b+c) - max_val - min_val
+
+    print(f"The 3 integers sorted: {min_val} {mid_val} {max_val}")
+
+sort_int()
+
+#------ Q 70 ----------
+def sort_files_by_date():
+    import glob
+    import os
+
+    files = glob.glob("*.txt")
+    sorted_files = sorted(files, key=os.path.getmtime)
+
+    # Print the sorted list of file names, one per line.
+    print("\n".join(map(str, sorted_files)))
+
+sort_files_by_date()
+
+#------ Q 71 ----------
+# get directory listing, sorted by creation date
+def list_dir():
+    import os
+
+    directory = os.listdir(path='.')
+    sorted_dir = sorted(directory, key=os.path.getctime)
+
+    print(sorted_dir)
+
+list_dir()
+
+#------ Q 72 ----------
+# get details of math module
+import math
+help(math)
+
+#------ Q 73 ----------
+def calc_midpoint_of_line():
+    p1 = [4,0]
+    p2 = [6,6]
+
+    midpoint_x = (p1[0] + p2[0]) / 2
+    midpoint_y = (p1[1] + p2[1]) / 2
+
+    print("Midpoint of the line is {} {}".format(midpoint_x, midpoint_y))
+
+calc_midpoint_of_line()
